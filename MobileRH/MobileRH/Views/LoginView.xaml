@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileRH.Views.LoginView" Padding="30"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout VerticalOptions="FillAndExpand">
+        <Entry  Placeholder="Código da Empresa" Text="{Binding CodigoDaEmpresa, Mode=TwoWay}"/>
+        <Entry Placeholder="Usuário" Text="{Binding Usuario, Mode=TwoWay}"/>
+        <Entry  Placeholder="Senha" Text="{Binding Senha, Mode=TwoWay}"/>
+        <Button Text="Entrar" Command="{Binding LoginCommand}"/>
+    </StackLayout>
+
+</ContentPage>

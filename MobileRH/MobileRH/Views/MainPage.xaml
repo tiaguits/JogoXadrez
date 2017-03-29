@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MobileRH"
+             x:Class="MobileRH.MainPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu"
+                 BackgroundColor="#e8e8e8">
+
+            <StackLayout Orientation="Vertical" WidthRequest="100">
+
+                <StackLayout 
+                    BackgroundColor="#38537c" 
+                    HeightRequest="150">
+                    <Label 
+                        Text="METADADOS"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        VerticalOptions="CenterAndExpand"
+                        TextColor="White"                        
+                        HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <!--<StackLayout Padding="10,0,10,5">
+                    <Label Text="Bem vindo Thiago" HorizontalOptions="StartAndExpand"/>
+                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Silver"/>
+                </StackLayout>-->
+
+                <ListView 
+                    x:Name="Menus"
+                    RowHeight="50"
+                    SeparatorVisibility="None"
+                    BackgroundColor="#e8e8e8">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="CenterAndExpand"
+                                    Orientation="Horizontal"
+                                    Padding="20,10,10,10"
+                                    Spacing="15">
+
+                                    <Image Source="{Binding Icone}"
+                                        WidthRequest="28"
+                                        HeightRequest="28"
+                                        VerticalOptions="Center" />                                    
+
+                                    <Label Text="{Binding Titulo}"
+                                        FontSize="Small"         
+                                        Margin="10,0,0,0"
+                                        FontAttributes="Bold"
+                                        VerticalOptions="Center"
+                                        TextColor="Black"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </StackLayout>
+
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>
