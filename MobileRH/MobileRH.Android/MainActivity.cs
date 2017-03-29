@@ -7,7 +7,6 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Xamarin.Forms;
-using MobileRH.Models;
 
 namespace MobileRH.Droid
 {
