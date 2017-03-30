@@ -38,6 +38,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConfiguracoesModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="ViewsModel\ConfiguracoesViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -60,7 +64,7 @@
     <Compile Include="Views\MinhasSolicitacoesView.xaml.cs">
       <DependentUpon>MinhasSolicitacoesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PaginaPrincipal\ItemDeMenu.cs" />
+    <Compile Include="ViewsModel\ItemDeMenu.cs" />
     <Compile Include="Views\Servicos\ServicoDeMensagem.cs" />
     <Compile Include="Views\Servicos\ServicoDeNavegacao.cs" />
     <Compile Include="Views\SolicitacoesPendentesView.xaml.cs">
@@ -79,7 +83,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

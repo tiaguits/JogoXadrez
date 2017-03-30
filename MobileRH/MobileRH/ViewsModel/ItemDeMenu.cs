@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace MobileRH.Views.PaginaPrincipal
+namespace MobileRH.ViewsModel
 {
     public class ItemDeMenu
     {

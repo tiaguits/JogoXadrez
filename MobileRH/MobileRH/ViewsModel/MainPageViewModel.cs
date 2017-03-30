@@ -1,5 +1,4 @@
-﻿using MobileRH.Views.PaginaPrincipal;
-using MobileRH.ViewsModel.Servicos;
+﻿using MobileRH.ViewsModel.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
