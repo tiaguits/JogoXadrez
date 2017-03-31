@@ -8,110 +8,111 @@ using Xamarin.Forms;
 
 namespace MobileRH.Views.Servicos
 {
-    public class ServicoDeNavegacao : IServicoDeNavegacao
+    public class NavigationService : INavigationService
     {        
-        public ServicoDeNavegacao()
+        public NavigationService()
         {            
         }
 
-        protected void ExibirPaginaNoDetalhe(Page pagina)
-        {
-            ((MasterDetailPage)App.Current.MainPage).Detail = new NavigationPage(pagina);
-        }
-
-        protected void ExibirPaginaComoPrincipal(Page pagina)
-        {
-            App.Current.MainPage = pagina;
-        }
-
-        public void IrParaConfiguracoes()
-        {
-             ExibirPaginaNoDetalhe(ObterConfiguracoes());
-        }
-
-        public void IrParaLogin()
-        {
-            ExibirPaginaComoPrincipal(ObterLogin());
-        }
-
-        public void IrParaMinhasAprovacoes()
-        {
-            ExibirPaginaNoDetalhe(ObterMinhasAprovacoes());
-        }
-
-        public void IrParaMinhasSolicitacoes()
-        {
-            ExibirPaginaNoDetalhe(ObterMinhasSolicitacoes());
-        }
-
-        public void IrParaPaginaPrincipal()
-        {
-            ExibirPaginaComoPrincipal(ObterPaginaPrincipal());
-        }
-
-        public void IrParaSolicitacoesPendentes()
-        {
-            ExibirPaginaNoDetalhe(ObterSolicitacoesPendentes());
-        }
-
-        public Page ObterPaginaPrincipal()
-        {
-            return new MainPage();
-        }
-
-        public Page ObterConfiguracoes()
-        {
-            return new ConfiguracoesView();
-        }
-
-        public Page ObterLogin()
-        {
-            return new LoginView();
-        }
-
-        public Page ObterMinhasAprovacoes()
-        {
-            return new MinhasAprovacoesView();
-        }
-
-        public Page ObterMinhasSolicitacoes()
-        {
-            return new MinhasSolicitacoesView();
-        }
-
-        public Page ObterSolicitacoesPendentes()
-        {
-            return new SolicitacoesPendentesView();
-        }
-
-        public Type ObterTipoConfiguracoes()
+        public Type GetConfiguracoesViewType()
         {
             return typeof(ConfiguracoesView);
         }
 
-        public Type ObterTipoLogin()
+        public Type GetLoginViewTypen()
         {
             return typeof(LoginView);
         }
 
-        public Type ObterTipoMinhasAprovacoes()
+        public Type GetMinhasAprovacoesViewType()
         {
             return typeof(MinhasAprovacoesView);
         }
 
-        public Type ObterTipoMinhasSolicitacoes()
+        public Type GetMinhasSolicitacoesViewType()
         {
             return typeof(MinhasSolicitacoesView);
         }
 
-        public Type ObterTipoPaginaPrincipal()
+        public Page GetConfiguracoesView()
+        {
+            return new ConfiguracoesView();
+        }
+
+        public Page GetLoginView()
+        {
+            return new LoginView();
+        }
+
+        public Page GetMinhasAprovacoesView()
+        {
+            return new MinhasAprovacoesView();
+        }
+
+        public Page GetMinhasSolicitacoesView()
+        {
+            return new MinhasSolicitacoesView();
+        }
+
+        public Page GetSolicitacoesPendentes()
+        {
+            return new SolicitacoesPendentesView();
+        }
+
+        public Page GetMainPageView()
+        {
+            return new MainPage();
+        }
+
+        public Type GetMainPageViewType()
         {
             return typeof(MainPage);
         }
 
-        public Type ObterTipoSolicitacoesPendentes()
+        public Type GetSolicitacoesPendentesViewType()
         {
             return typeof(SolicitacoesPendentesView);
         }
+
+        public void GoToConfiguracoes()
+        {
+            SetDetailPage(GetConfiguracoesView());
+        }
+
+        public void GoToLogin()
+        {
+            SetDetailPage(GetLoginView());
+        }
+
+        public void GoToMinhasAprovacoes()
+        {
+            SetDetailPage(GetMinhasAprovacoesView());
+        }
+
+        public void GoToMinhasSolicitacoes()
+        {
+            SetDetailPage(GetMinhasSolicitacoesView());
+        }
+
+        public void GoToMainPage()
+        {
+            SetMainPage(GetMainPageView());
+        }
+
+        public void GoToSolicitacoesPendentes()
+        {
+            SetDetailPage(GetSolicitacoesPendentes());
+        }
+
+        protected void SetDetailPage(Page page)
+        {
+            ((MasterDetailPage)App.Current.MainPage).Detail = new NavigationPage(page);
+        }
+
+        protected void SetMainPage(Page page)
+        {
+            App.Current.MainPage = page;
+        }
+
     }
 }

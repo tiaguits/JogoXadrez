@@ -16,20 +16,20 @@ namespace MobileRH
         public MainPage()
         {
             InitializeComponent();
-            CriarMenus();
+            CreateMenu();
 
-            Detail.Navigation.PushAsync(ViewModel.ServicoDeNavegacao.ObterMinhasSolicitacoes());
+            Detail.Navigation.PushAsync(ViewModel.NavigationService.GetMinhasSolicitacoesView());
         }
 
-        private void CriarMenus()
+        private void CreateMenu()
         {
             ViewModel = new MainPageViewModel();
 
             Menus.ItemTapped += (object sender, ItemTappedEventArgs e) =>
             {
-                var menu = (ItemDeMenu)e.Item;
+                var menu = (MasterPageItem)e.Item;
 
-                menu.Acao();
+                menu.Action();
                 
                 IsPresented = false;
 

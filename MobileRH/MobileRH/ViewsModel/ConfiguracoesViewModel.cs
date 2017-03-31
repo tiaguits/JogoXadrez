@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobileRH.ViewsModel
 {
-    class ConfiguracoesViewModel
+    public class ConfiguracoesViewModel: ViewModelBase
     {
     }
 }

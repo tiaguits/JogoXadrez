@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileRH.Dados.Entidades
+namespace MobileRH.ViewsModel.Servicos
 {
-    public interface IEntidade
+    public interface IMessageService
     {
+        Task ShowMessage(string message);
     }
 }

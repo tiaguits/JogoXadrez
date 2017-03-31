@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MobileRH.Views.Servicos
 {
-    class ServicoDeMensagem : IServicoDeMensagem
+    class ServicoDeMensagem : IMessageService
     {
-        public async Task ExibirMensagem(string mensagem)
+        public async Task ShowMessage(string message)
         {
-            await MobileRH.App.Current.MainPage.DisplayAlert("MobileRH", mensagem, "ok");
+            await MobileRH.App.Current.MainPage.DisplayAlert("MobileRH", message, "ok");
         }
     }
 }

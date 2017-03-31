@@ -1,4 +1,5 @@
-﻿using MobileRH.ViewsModel.Servicos;
+﻿using MobileRH.Utils;
+using MobileRH.ViewsModel.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,20 +10,18 @@ using Xamarin.Forms;
 
 namespace MobileRH.ViewsModel
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public class ViewModelBase : ObservableBaseObject
     {
-        private IServicoDeNavegacao _servicoDeNavegacao;
-        private IServicoDeMensagem _servicoDeMensagem;
+        private INavigationService _navigationService;
+        private IMessageService _messageService;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public IServicoDeNavegacao ServicoDeNavegacao { get { return _servicoDeNavegacao; } }
-        public IServicoDeMensagem ServicoDeMensagem { get { return _servicoDeMensagem; } }
+        public INavigationService NavigationService { get { return _navigationService; } }
+        public IMessageService MessageService { get { return _messageService; } }
 
         public ViewModelBase()
         {
-            _servicoDeNavegacao = DependencyService.Get<IServicoDeNavegacao>();
-            _servicoDeMensagem = DependencyService.Get<IServicoDeMensagem>();
+            _navigationService = DependencyService.Get<INavigationService>();
+            _messageService = DependencyService.Get<IMessageService>();
         }
     }
 }

@@ -23,12 +23,12 @@ namespace MobileRH.ViewsModel
 
         protected void Atualizar()
         {
-            ServicoDeMensagem.ExibirMensagem("Atualizar");
+            MessageService.ShowMessage("Atualizar");
         }
 
         protected void NovaSolicitacao()
         {
-            ServicoDeMensagem.ExibirMensagem("Nova Solicitação");
+            MessageService.ShowMessage("Nova Solicitação");
         }
 
     }

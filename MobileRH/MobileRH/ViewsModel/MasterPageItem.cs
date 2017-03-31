@@ -7,10 +7,10 @@ using Xamarin.Forms;
 
 namespace MobileRH.ViewsModel
 {
-    public class ItemDeMenu
+    public class MasterPageItem
     {
-        public string Titulo { get; set; }
-        public string Icone { get; set; }
-        public Func<bool> Acao { get; set; }
+        public string Title { get; set; }
+        public string Icon { get; set; }
+        public Func<bool> Action { get; set; }
     }
 }

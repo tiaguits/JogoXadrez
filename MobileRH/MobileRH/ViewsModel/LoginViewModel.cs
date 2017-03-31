@@ -1,4 +1,5 @@
-﻿using MobileRH.ViewsModel.Servicos;
+﻿using MobileRH.Utils;
+using MobileRH.ViewsModel.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,83 +11,39 @@ using Xamarin.Forms;
 
 namespace MobileRH.ViewsModel
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private int _codigoDaEmpresa;
         private string _usuario;
         private string _senha;
 
         public ICommand LoginCommand { get; }
 
-        private IServicoDeMensagem _servicoDeMensagem;
-        private IServicoDeNavegacao _servicoDeNavegacao;
+        private IMessageService _servicoDeMensagem;
+        private INavigationService _servicoDeNavegacao;
 
         public int CodigoDaEmpresa
         {
-            get
-            {
-                return _codigoDaEmpresa;
-            }
-            set
-            {
-                if (_codigoDaEmpresa != value)
-                {
-                    _codigoDaEmpresa = value;
-
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs("CodigoDaEmpresa"));
-                    }
-                }
-            }
+            get { return _codigoDaEmpresa; }
+            set { _codigoDaEmpresa = value; OnPropertyChanged(); }
         }
 
         public string Usuario
         {
-            get
-            {
-                return _usuario;
-            }
-            set
-            {
-                if (_usuario != value)
-                {
-                    _usuario = value;
-
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Usuario"));
-                    }
-                }
-            }
+            get { return _usuario; }
+            set { _usuario = value; OnPropertyChanged(); }
         }
 
         public string Senha
         {
-            get
-            {
-                return _senha;
-            }
-            set
-            {
-                if (_senha != value)
-                {
-                    _senha = value;
-
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs("Senha"));
-                    }
-                }
-            }
+            get { return _senha; }
+            set { _senha = value; OnPropertyChanged(); }
         }
 
         public LoginViewModel()
         {
-            this._servicoDeMensagem = DependencyService.Get<IServicoDeMensagem>();
-            this._servicoDeNavegacao = DependencyService.Get<IServicoDeNavegacao>();
+            this._servicoDeMensagem = DependencyService.Get<IMessageService>();
+            this._servicoDeNavegacao = DependencyService.Get<INavigationService>();
 
             this.LoginCommand = new Command(ExecutarLogin);
 
@@ -97,11 +54,11 @@ namespace MobileRH.ViewsModel
         {
             if (Usuario.ToUpper() == "THIAGO" && Senha == "123")
             {
-                this._servicoDeNavegacao.IrParaPaginaPrincipal();
+                this._servicoDeNavegacao.GoToMainPage();
             }
             else
             {
-                this._servicoDeMensagem.ExibirMensagem("Usuário ou senha incorretos.");
+                this._servicoDeMensagem.ShowMessage("Usuário ou senha incorretos.");
             }
         }
     }

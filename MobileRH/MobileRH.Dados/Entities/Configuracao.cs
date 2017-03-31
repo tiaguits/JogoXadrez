@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileRH.ViewsModel.Servicos
+namespace MobileRH.Dados.Entities
 {
-    public interface IServicoDeMensagem
+    public class Configuracao: IEntity
     {
-        Task ExibirMensagem(string mensagem);
     }
 }

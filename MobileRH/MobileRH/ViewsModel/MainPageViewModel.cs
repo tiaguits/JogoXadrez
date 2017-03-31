@@ -10,82 +10,76 @@ using Xamarin.Forms;
 namespace MobileRH.ViewsModel
 {
     public class MainPageViewModel : ViewModelBase
-    {        
-        private List<ItemDeMenu> _menus;
-        public List<ItemDeMenu> Menus
+    {
+        private List<MasterPageItem> _menus;
+        public List<MasterPageItem> Menus
         {
-            get
-            {
-                return _menus;
-            }
+            get { return _menus; }
         }
 
         private Type _paginaInicial;
         public Type PaginaInicial
         {
-            get
-            {
-                return _paginaInicial;
-            }
+            get { return _paginaInicial; }
         }
 
-        public MainPageViewModel(): base()
-        {            
-            _paginaInicial = ServicoDeNavegacao.ObterTipoMinhasSolicitacoes();
-            _menus = new List<ItemDeMenu>();
+        public MainPageViewModel() : base()
+        {
+            _paginaInicial = NavigationService.GetMinhasSolicitacoesViewType();
+            _menus = new List<MasterPageItem>();
 
             DefinirMenus();
         }
 
         protected void DefinirMenus()
         {
-            ItemDeMenu menuMinhasSolicitacoes = new ItemDeMenu();
-            menuMinhasSolicitacoes.Titulo = "Minhas Solicitações";
-            menuMinhasSolicitacoes.Icone = "minhassolicitacoes.png";
-            menuMinhasSolicitacoes.Acao = () =>
+            MasterPageItem menuMinhasSolicitacoes = new MasterPageItem();
+            menuMinhasSolicitacoes.Title = "Minhas Solicitações";
+            menuMinhasSolicitacoes.Icon = "minhassolicitacoes.png";
+            menuMinhasSolicitacoes.Action = () =>
             {
-                ServicoDeNavegacao.IrParaMinhasSolicitacoes();
+                NavigationService.GoToMinhasSolicitacoes();
                 return true;
             };
 
             _menus.Add(menuMinhasSolicitacoes);
 
-            ItemDeMenu menuSolicitacoesPendentes = new ItemDeMenu();
-            menuSolicitacoesPendentes.Titulo = "Solicitação Pendentes";
-            menuSolicitacoesPendentes.Icone = "solicitacoespendentes.png";
-            menuSolicitacoesPendentes.Acao = () =>
+            MasterPageItem menuSolicitacoesPendentes = new MasterPageItem();
+            menuSolicitacoesPendentes.Title = "Solicitação Pendentes";
+            menuSolicitacoesPendentes.Icon = "solicitacoespendentes.png";
+            menuSolicitacoesPendentes.Action = () =>
             {
-                ServicoDeNavegacao.IrParaSolicitacoesPendentes();
+                NavigationService.GoToSolicitacoesPendentes();
                 return true;
             };
             _menus.Add(menuSolicitacoesPendentes);
 
-            ItemDeMenu menuMinhasAprovacoes = new ItemDeMenu();
-            menuMinhasAprovacoes.Titulo = "Minhas Aprovações";
-            menuMinhasAprovacoes.Icone = "minhasaprovacoes.png";
-            menuMinhasAprovacoes.Acao = () =>
+            MasterPageItem menuMinhasAprovacoes = new MasterPageItem();
+            menuMinhasAprovacoes.Title = "Minhas Aprovações";
+            menuMinhasAprovacoes.Icon = "minhasaprovacoes.png";
+            menuMinhasAprovacoes.Action = () =>
             {
-                ServicoDeNavegacao.IrParaMinhasAprovacoes();
+                NavigationService.GoToMinhasAprovacoes();
                 return true;
             };
             _menus.Add(menuMinhasAprovacoes);
 
-            ItemDeMenu menuConfiguracoes = new ItemDeMenu();
-            menuConfiguracoes.Titulo = "Configurações";
-            menuConfiguracoes.Icone = "configuracoes.png";
-            menuConfiguracoes.Acao = () =>
+            MasterPageItem menuConfiguracoes = new MasterPageItem();
+            menuConfiguracoes.Title = "Configurações";
+            menuConfiguracoes.Icon = "configuracoes.png";
+            menuConfiguracoes.Action = () =>
             {
-                ServicoDeNavegacao.IrParaConfiguracoes();
+                NavigationService.GoToConfiguracoes();
                 return true;
             };
             _menus.Add(menuConfiguracoes);
 
-            ItemDeMenu menuSair = new ItemDeMenu();
-            menuSair.Titulo = "Sair";
-            menuSair.Icone = "sair.png";
-            menuSair.Acao = () =>
+            MasterPageItem menuSair = new MasterPageItem();
+            menuSair.Title = "Sair";
+            menuSair.Icon = "sair.png";
+            menuSair.Action = () =>
             {
-                ServicoDeNavegacao.IrParaLogin();
+                NavigationService.GoToLogin();
                 return true;
             };
             _menus.Add(menuSair);

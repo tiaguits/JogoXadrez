@@ -23,8 +23,8 @@ namespace MobileRH
 
         private void RegistrarDependencias()
         {
-            DependencyService.Register<IServicoDeMensagem, ServicoDeMensagem>();
-            DependencyService.Register<IServicoDeNavegacao, ServicoDeNavegacao>();
+            DependencyService.Register<IMessageService, ServicoDeMensagem>();
+            DependencyService.Register<INavigationService, NavigationService>();
         }
 
         protected override void OnStart()
